@@ -40,5 +40,23 @@ namespace UserRegistration
                 Console.WriteLine("Invalid");
             }
         }
+        public void ValidateEmail()
+        {
+            string[] validEmail = { "abc@yahoo.com", "abc-100$yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc.100@abc.net", "abc#1.com" };
+            string eMailPattern =(@" ^[a - zA - Z0 - 9] + ([\.\+-][a - zA - Z0 - 9] +) ?@[a-zA - Z0 - 9]+(\.[a-zA - Z]{ 2,}(\.[a-zA-Z]+)?)$");
+            Regex exp = new Regex(eMailPattern);
+            for(int i = 0; i < validEmail.Length;i++)
+            {
+                bool result = exp.IsMatch(validEmail[i]);
+                if(result)
+                {
+                    Console.WriteLine("Valid");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+            }
+        }
     }
 }
