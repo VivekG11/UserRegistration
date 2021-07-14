@@ -9,6 +9,7 @@ namespace UserRegistration
             Console.WriteLine("User Registration.......");
             RegExp regExp = new RegExp();
             regExp.ValidateFirstName();
+            regExp.ValidateLastName();
         }
     }
 }
