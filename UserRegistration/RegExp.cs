@@ -58,5 +58,25 @@ namespace UserRegistration
                 }
             }
         }
+        public void ValidateMobilNumber()
+        {
+            string[] mobileNumbers = { "91 9700914979", "91 7338846979", "919959926452" };
+            string numPattern = "^[91 ]?[0-9]{10}$";
+      //      long num = Convert.ToInt64(Console.ReadLine());
+            Regex exp = new Regex(numPattern);
+            for (int i = 0; i < mobileNumbers.Length; i++)
+            {
+                bool res = exp.IsMatch(numPattern);
+                if (res)
+                {
+                    Console.WriteLine("Mobile Num is Valid.");
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                }
+            }
+        }
     }
 }
