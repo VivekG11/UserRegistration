@@ -81,7 +81,7 @@ namespace UserRegistration
         public void PasswordRule()
         {
             Regex regex = new Regex(pattern);
-            string pwPattern = @"^[a-z]*[A-Z][0-9][a-z]*$";
+            string pwPattern = @"^[a-z]*[A-Z][a-z]*.[a-z]*[0-9][a-z]*$";
             Console.WriteLine("Enter password :");
             string password = Console.ReadLine();
             bool res = Regex.IsMatch(password, pwPattern);
