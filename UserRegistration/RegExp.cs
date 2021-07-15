@@ -78,13 +78,13 @@ namespace UserRegistration
                 }
            // }
         }
-        public void PasswordRule1()
+        public void PasswordRule()
         {
             Regex regex = new Regex(pattern);
-            string pwPattern = @"^[a-zA-Z0-9]{8,}$";
+            string pwPattern = @"^[a-z]*[A-Z][a-z]*$";
             Console.WriteLine("Enter password :");
             string password = Console.ReadLine();
-            bool res = Regex.IsMatch(password, pattern);
+            bool res = Regex.IsMatch(password, pwPattern);
             if(res)
             {
                 Console.WriteLine("Valid");

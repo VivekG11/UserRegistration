@@ -10,7 +10,7 @@ namespace UserRegistration
             RegExp regExp = new RegExp();
             // regExp.ValidateEmail();
            // regExp.ValidateMobilNumber();
-            regExp.PasswordRule1();
+            regExp.PasswordRule();
         }
     }
 }
