@@ -8,8 +8,10 @@ namespace UserRegistration
         {
             Console.WriteLine("User Registration.......");
             RegExp regExp = new RegExp();
-            // regExp.ValidateEmail();
-           // regExp.ValidateMobilNumber();
+            regExp.ValidateFirstName();
+            regExp.ValidateLastName();
+            regExp.ValidateEmail();
+            regExp.ValidateMobilNumber();
             regExp.PasswordRule();
         }
     }
