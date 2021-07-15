@@ -60,12 +60,12 @@ namespace UserRegistration
         }
         public void ValidateMobilNumber()
         {
-            string[] mobileNumbers = { "91 9700914979", "91 7338846979", "919959926452" };
-            string numPattern = "^[91 ]?[0-9]{10}$";
-      //      long num = Convert.ToInt64(Console.ReadLine());
+          //  string[] mobileNumbers = { "91 9700914979", "91 7338846979", "919959926452" };
+            string numPattern = @"^[0-9]+[\s]+[0-9]{10}$";
+           string num = (Console.ReadLine());
             Regex exp = new Regex(numPattern);
-            for (int i = 0; i < mobileNumbers.Length; i++)
-            {
+          //  for (int i = 0; i < mobileNumbers.Length; i++)
+         //   {
                 bool res = exp.IsMatch(numPattern);
                 if (res)
                 {
@@ -76,6 +76,22 @@ namespace UserRegistration
                 {
                     Console.WriteLine("Invalid");
                 }
+           // }
+        }
+        public void PasswordRule1()
+        {
+            Regex regex = new Regex(pattern);
+            string pwPattern = @"^[a-zA-Z0-9]{8,}$";
+            Console.WriteLine("Enter password :");
+            string password = Console.ReadLine();
+            bool res = Regex.IsMatch(password, pattern);
+            if(res)
+            {
+                Console.WriteLine("Valid");
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
             }
         }
     }
