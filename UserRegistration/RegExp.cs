@@ -48,34 +48,34 @@ namespace UserRegistration
         }
 
         // public static string pattern = "^[A-Z][a-z]{2,}$";
-        public static string ValidateFirstName(string firstName)
-        {
-            Regex exp = new Regex("^[A-Z][a-z]{2,}$");
+        public static Func<string, string> ValidateFirstName = (firstName) =>
+          {
+              Regex exp = new Regex("^[A-Z][a-z]{2,}$");
 
-            bool result = exp.IsMatch(firstName);
-            try
-            {
-                if (firstName.Equals(""))
-                {
-                    throw new Expceptions(Expceptions.ExceptionType.EMPTY_MESSAGE, "FirstName should not be empty");
-                }
-                if (result)
-                {
-                    Console.WriteLine("Valid");
-                    return firstName;
+              bool result = exp.IsMatch(firstName);
+              try
+              {
+                  if (firstName.Equals(""))
+                  {
+                      throw new Expceptions(Expceptions.ExceptionType.EMPTY_MESSAGE, "FirstName should not be empty");
+                  }
+                  if (result)
+                  {
+                      Console.WriteLine("Valid");
+                      return firstName;
 
-                }
-                else
-                {
-                    throw new Expceptions(Expceptions.ExceptionType.INVALID_MESSAGE, "Invalid Name");
+                  }
+                  else
+                  {
+                      throw new Expceptions(Expceptions.ExceptionType.INVALID_MESSAGE, "Invalid Name");
                     // Console.WriteLine("Invalid");
                 }
-            }
-            catch (NullReferenceException ex)
-            {
-                return ex.Message;
-            }
-        }
+              }
+              catch (NullReferenceException ex)
+              {
+                  return ex.Message;
+              }
+          };
 
         public static string ValidateLastName(string lastName)
         {
