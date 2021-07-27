@@ -53,17 +53,28 @@ namespace UserRegistration
             Regex exp = new Regex("^[A-Z][a-z]{2,}$");
 
             bool result = exp.IsMatch(firstName);
-            if (result)
+            try
             {
-                Console.WriteLine("Valid");
-                return firstName;
+                if (firstName.Equals(""))
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.EMPTY_MESSAGE, "FirstName should not be empty");
+                }
+                if (result)
+                {
+                    Console.WriteLine("Valid");
+                    return firstName;
 
+                }
+                else
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.INVALID_MESSAGE, "Invalid Name");
+                    // Console.WriteLine("Invalid");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                Console.WriteLine("Invalid");
+                return ex.Message;
             }
-            return default;
         }
 
         public static string ValidateLastName(string lastName)
@@ -71,16 +82,27 @@ namespace UserRegistration
             Regex exp = new Regex("^[A-Z][a-z]{2,}$");
 
             bool result = exp.IsMatch(lastName);
-            if (result)
+            try
             {
-                Console.WriteLine("Valid");
-
+                if (result.Equals( null))
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.NULL, "Last NAme should not be Null");
+                }
+                if (result)
+                {
+                    Console.WriteLine("Valid");
+                    return lastName;
+                }
+                else
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.INVALID_MESSAGE, "Invalid Last Name ");
+                // Console.WriteLine("Invalid");
+                }
             }
-            else
+            catch(NullReferenceException ex)
             {
-                Console.WriteLine("Invalid");
+                return ex.Message;
             }
-            return default;
         }
         public static string ValidateEmail(string email)
         {
@@ -90,15 +112,31 @@ namespace UserRegistration
             // for(int i = 0; i < validEmail.Length;i++)
             //{
             bool result = exp.IsMatch(email);
-            if (result)
+            try
             {
-                Console.WriteLine("Valid");
+                if (result.Equals(""))
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.EMPTY_MESSAGE, "Mail Id should not be empty");
+                }
+                if (result.Equals(null))
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.NULL, "Mail should not be Null");
+                }
+                if (result)
+                {
+                    Console.WriteLine("Valid");
+                    return email;
+                }
+                else
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.INVALID_MESSAGE, "Invalid Mail");
+                   // Console.WriteLine("Invalid");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                Console.WriteLine("Invalid");
+                return ex.Message;
             }
-            return default;
         }
 
         public static string ValidateMobilNumber(string phoneNumber)
@@ -110,16 +148,32 @@ namespace UserRegistration
             //  for (int i = 0; i < mobileNumbers.Length; i++)
             //   {
             bool res = exp.IsMatch(phoneNumber);
-            if (res)
+            try
             {
-                Console.WriteLine("Mobile Num is Valid.");
+                if (res.Equals(""))
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.EMPTY_MESSAGE, "Mail Id should not be empty");
+                }
+                if (res.Equals(null))
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.NULL, "Mail should not be Null");
+                }
 
+                if (res)
+                {
+                    Console.WriteLine("Mobile Num is Valid.");
+                    return phoneNumber;
+                }
+                else
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.INVALID_MESSAGE, "Invalid Number");
+                    // Console.WriteLine("Invalid");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                Console.WriteLine("Invalid");
+                return ex.Message;
             }
-            return default;
             // }
         }
         public static string PasswordRule(string password)
@@ -130,15 +184,31 @@ namespace UserRegistration
             // Console.WriteLine("Enter password :");
             //string password = Console.ReadLine();
             bool res = exp.IsMatch(password);
-            if (res)
+            try
             {
-                Console.WriteLine("Valid");
+                if (res.Equals(""))
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.EMPTY_MESSAGE, "Mail Id should not be empty");
+                }
+                if (res.Equals(null))
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.NULL, "Mail should not be Null");
+                }
+                if (res)
+                {
+                    Console.WriteLine("Valid");
+                    return default;
+                }
+                else
+                {
+                    throw new Expceptions(Expceptions.ExceptionType.INVALID_MESSAGE, "Invalid Password");
+                    // Console.WriteLine("Invalid");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                Console.WriteLine("Invalid");
+                return ex.Message;
             }
-            return default;
         }
     }
 
